@@ -5,6 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log('In GET Request /todo');
+    //Fill in once query logic is determined
     let queryText = '';
 
     pool.query(queryText).then((result) => {
@@ -19,8 +20,9 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     console.log(`/todo POST Request made: ${req.body}`);
+    //Fill in once query logic is determined
     let queryText = '';
-    pool.query(queryText, [])
+    pool.query(queryText, [/*Fill in with values once determined */])
     .then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
