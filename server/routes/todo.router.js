@@ -28,11 +28,30 @@ router.post('/', (req, res) => {
     }).catch((error) => {
         console.log(`Error in POST ${error}`);
         res.sendStatus(500);
-    })
-})
+    });
+});
 
 // PUT
+router.put('/:id', (req, res) => {
+    console.log(`PUT Request made for /todo ${req.params}`);
+    //Fill in once query logic is determined
+    let queryText = '';
+    pool.query(queryText, [/*Fill in with values once determined */])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in PUT ${error}`);
+        res.sendStatus(500);
+    });
+});
 
 // DELETE
+router.delete('/:id', (req, res) => {
+    console.log(`DELETE Request made for /todo ${req.params.id}`);
+    const deleteIndex = Number(req.params.id);
+    //Fill in with database name
+    let queryText = 'DELETE from "database" WHERE "id" = $1';
+    pool.query(queryT)
+})
 
 module.exports = router;
