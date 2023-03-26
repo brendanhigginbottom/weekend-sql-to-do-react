@@ -16,10 +16,11 @@ router.get('/', (req, res) => {
 
 // POST
 router.post('/', (req, res) => {
-    console.log(`/todo POST Request made: ${req.body}`);
+    console.log(req.body);
+    console.log(`/todo POST Request made`);
     //Fill in once query logic is determined
-    let queryText = '';
-    pool.query(queryText, [/*Fill in with values once determined */])
+    let queryText = 'INSERT INTO "weekend-to-do-app" ("task_name", "task_desc") VALUES ($1, $2);';
+    pool.query(queryText, [req.body.task_name, req.body.task_desc])
     .then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
