@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import ToDoList from '../ToDoList/ToDoList.jsx';
+import ToDoForm from '../ToDoList/ToDoForm.jsx';
 
 
 function App () {
@@ -22,33 +24,40 @@ function App () {
     fetchToDo();
   }, []);
 
-  const submitForm = (event) => {
-    event.preventDefault();
+  // const submitForm = (event) => {
+  //   event.preventDefault();
 
-    axios.post('/todo', {
-      task_name: taskName,
-      task_desc: taskDesc
-    }).then((response) => {
-      setTaskName('');
-      setTaskDesc('');
-      fetchToDo();
-      console.log('In submitForm');
-    }).catch((error) => {
-      console.log(`Error in POST ${error}`);
-      alert('Something went wrong');
-    });
-  }
+  //   axios.post('/todo', {
+  //     task_name: taskName,
+  //     task_desc: taskDesc
+  //   }).then((response) => {
+  //     setTaskName('');
+  //     setTaskDesc('');
+  //     fetchToDo();
+  //     console.log('In submitForm');
+  //   }).catch((error) => {
+  //     console.log(`Error in POST ${error}`);
+  //     alert('Something went wrong');
+  //   });
+  // }
 
   return (
     <div>
       <h1>TO DO APP</h1>
-      <form onSubmit={submitForm}>
+      <ToDoForm 
+        taskName={taskName}
+        setTaskName={setTaskName}
+        taskDesc={taskDesc}
+        setTaskDesc={setTaskDesc}
+        fetchToDo={fetchToDo}
+      />
+      {/* <form onSubmit={submitForm}>
         Task: <input type="text" value={taskName}
           onChange={(e) => setTaskName(e.target.value)} />
         Task Description: <input type="text" value={taskDesc}
           onChange={(e) => setTaskDesc(e.target.value)} />
         <input type="submit" value="Add Task" />
-      </form>
+      </form> */}
       <table>
         <thead>
           <tr>
