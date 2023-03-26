@@ -31,7 +31,8 @@ function ToDoTask({ task, fetchToDo }) {
             <td>{task.task_desc}</td>
             {/* Ternary operator to display 'X' or unicode checkmark based on boolean "complete" in database */}
             <td>{task.complete === false ? 'X' : <>&#x2713;</>}</td>
-            <td><button onClick={((e) => completeTask(e))}>Complete</button></td>
+            {/* Ternary in button to not display the "Complete" button if complete boolean in database is true */}
+            <td><button onClick={((e) => completeTask(e))} style={task.complete === true ? {display: 'none'} : {display: ''}}>Complete</button></td>
             <td><button onClick={((e) => deleteTask(e))}>Delete</button></td>
         </tr>
     )

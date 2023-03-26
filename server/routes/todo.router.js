@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 
 // PUT
 router.put('/:id', (req, res) => {
-    console.log(`PUT Request made for /todo`);
+    console.log('In PUT Request');
     let queryText = 'UPDATE "weekend-to-do-app" SET "complete" = $1 WHERE "id" = $2;';
     pool.query(queryText, [true, req.params.id])
     .then((result) => {
