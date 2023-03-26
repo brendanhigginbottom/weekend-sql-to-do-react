@@ -6,7 +6,7 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => {
     console.log('In GET Request /todo');
     //Fill in once query logic is determined
-    let queryText = '';
+    let queryText = ';';
 
     pool.query(queryText).then((result) => {
         console.log(`Testing for result: ${result}`);
@@ -50,8 +50,36 @@ router.delete('/:id', (req, res) => {
     console.log(`DELETE Request made for /todo ${req.params.id}`);
     const deleteIndex = Number(req.params.id);
     //Fill in with database name
-    let queryText = 'DELETE from "database" WHERE "id" = $1';
-    pool.query(queryT)
-})
+    let queryText = 'DELETE from "database" WHERE "id" = $1;';
+    pool.query(queryText, [/*Fill in with values once determined */])
+    .then((results) => {
+        res.sendStatus(500);
+    });
+});
+
+//RESET PUT ROUTE
+
+// router.put('/', (req,res) => {
+//     //Fill in with values once determined
+//     let queryText = 'UPDATE "database" SET "value" = $1 WHERE "id" > 0;';
+//     pool.query(queryText, [false]).then((response) => {
+//         res.sendStatus(200);
+//     }).catch((error) => {
+//         console.log(`Error in PUT ${error}`);
+//         res.sendStatus(500);
+//     });
+// });
+
+//CLEAR ALL DELETE ROUTE
+// router.delete('/', (req,res) => {
+//     //Fill in with values once determined
+//     let queryText = 'DELETE FROM "database" WHERE "id" > 0;';
+//     pool.query(queryText).then((response) => {
+//         res.sendStatus(200);
+//     }).catch((error) => {
+//         console.log(`Error in CLEAR ALL DELETE ${error}`);
+//         res.sendStatus(500);
+//     });
+// });
 
 module.exports = router;
