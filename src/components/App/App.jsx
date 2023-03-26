@@ -37,7 +37,7 @@ function App () {
           {
             toDoList.map((task) => (
               <tr key={task.id}>
-                <td>{task.date}</td>
+                <td>{task.date.substring(0,10)}</td>
                 <td>{task.task_name}</td>
                 <td>{task.task_desc}</td>
                 <td><button>Complete</button></td>
