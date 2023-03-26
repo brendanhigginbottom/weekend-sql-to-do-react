@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
     console.log('In GET Request /todo');
     let queryText = 'SELECT * FROM "weekend-to-do-app";';
     pool.query(queryText).then((results) => {
-        console.log(`Testing for result: ${results}`);
         res.send(results.rows);
     }).catch((error) => {
         console.log(`Error in GET ${error}`);

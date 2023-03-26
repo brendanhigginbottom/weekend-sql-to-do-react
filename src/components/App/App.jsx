@@ -23,7 +23,7 @@ function App () {
   return (
     <div>
       <h1>TO DO APP</h1>
-      {/* <table>
+      <table>
         <thead>
           <tr>
             <th>Date</th>
@@ -46,7 +46,7 @@ function App () {
             ))
           }
         </tbody>
-      </table> */}
+      </table>
     </div>
   );
 
