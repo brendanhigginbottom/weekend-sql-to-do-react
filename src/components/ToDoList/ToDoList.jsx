@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ToDoTask from './ToDoTask';
 
-function ToDoList({ toDoList }) {
+function ToDoList({ toDoList, fetchToDo }) {
 
     return (
         <>
@@ -22,6 +22,7 @@ function ToDoList({ toDoList }) {
                                 <ToDoTask 
                                     key={task.id}
                                     task={task}
+                                    fetchToDo={fetchToDo}
                                 />
                             ))   
                         }

@@ -36,6 +36,7 @@ function App () {
       />
       <ToDoList 
         toDoList={toDoList}
+        fetchToDo={fetchToDo}
       />
     </div>
   );

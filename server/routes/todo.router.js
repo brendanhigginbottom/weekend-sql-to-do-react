@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 router.get('/', (req, res) => {
     console.log('In GET Request /todo');
-    let queryText = 'SELECT * FROM "weekend-to-do-app";';
+    let queryText = 'SELECT * FROM "weekend-to-do-app" ORDER BY "complete", "date";';
     pool.query(queryText).then((results) => {
         res.send(results.rows);
     }).catch((error) => {
@@ -46,13 +46,16 @@ router.put('/:id', (req, res) => {
 // DELETE
 router.delete('/:id', (req, res) => {
     console.log(`DELETE Request made for /todo ${req.params.id}`);
-    const deleteIndex = Number(req.params.id);
+    //const deleteIndex = Number(req.params.id);
     //Fill in with database name
-    let queryText = 'DELETE from "database" WHERE "id" = $1;';
-    pool.query(queryText, [/*Fill in with values once determined */])
+    let queryText = 'DELETE from "weekend-to-do-app" WHERE "id" = $1;';
+    pool.query(queryText, [req.params.id])
     .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in DELETE ${error}`);
         res.sendStatus(500);
-    });
+    })
 });
 
 //RESET PUT ROUTE
