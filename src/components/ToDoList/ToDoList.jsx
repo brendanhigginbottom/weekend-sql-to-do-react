@@ -1,4 +1,5 @@
-
+import axios from 'axios';
+import ToDoTask from './ToDoTask';
 
 function ToDoList({ toDoList }) {
 
@@ -16,19 +17,14 @@ function ToDoList({ toDoList }) {
                     </tr>
                 </thead>
                 <tbody>
-                {
-                    toDoList.map((task) => (
-                    <tr key={task.id}>
-                        {/* Using substring to truncate time to just date */}
-                        <td>{task.date.substring(0,10)}</td>
-                        <td>{task.task_name}</td>
-                        <td>{task.task_desc}</td>
-                        <td>{task.complete.toString()}</td>
-                        <td><button>Complete</button></td>
-                        <td><button>Delete</button></td>
-                    </tr>
-                    ))
-                }
+                        {
+                            toDoList.map((task) => (
+                                <ToDoTask 
+                                    key={task.id}
+                                    task={task}
+                                />
+                            ))   
+                        }
                 </tbody>
             </table>
         </>
