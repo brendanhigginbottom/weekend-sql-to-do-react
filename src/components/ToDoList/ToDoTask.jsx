@@ -12,14 +12,26 @@ function ToDoTask({ task, fetchToDo }) {
             alert('Something went wrong.');
         });
     }
+
+    const completeTask = (e) => {
+        console.log(`Update task ${task.id}`);
+        axios.put(`/todo/${task.id}`).then((response) => {
+            console.log('in completeTask');
+            fetchToDo();
+        }).catch((error) => {
+            console.log(`Error in PUT ${error}`);
+            alert('Something went wrong');
+        });
+    }
     
     return (
         <tr>
             <td>{task.date.substring(0,10)}</td>
             <td>{task.task_name}</td>
             <td>{task.task_desc}</td>
+            {/* Ternary operator to display 'X' or unicode checkmark based on boolean "complete" in database */}
             <td>{task.complete === false ? 'X' : <>&#x2713;</>}</td>
-            <td><button>Complete</button></td>
+            <td><button onClick={((e) => completeTask(e))}>Complete</button></td>
             <td><button onClick={((e) => deleteTask(e))}>Delete</button></td>
         </tr>
     )
