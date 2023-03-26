@@ -9,3 +9,6 @@ CREATE TABLE "weekend-to-do-app" (
 INSERT INTO "weekend-to-do-app" ("task_name", "task_desc")
 VALUES ('Groceries', 'Buy bread and cheese'),
 		('Laundry', 'Wash towels and dish rags');
+
+INSERT INTO "weekend-to-do-app" ("task_name", "task_desc", "complete")
+VALUES ('aaaaa', 'bbbbb', true);
