@@ -26,7 +26,7 @@ function ToDoForm({ taskName, setTaskName, taskDesc, setTaskDesc, fetchToDo }) {
             onChange={(e) => setTaskName(e.target.value)} />
             Task Description: <input type="text" value={taskDesc}
             onChange={(e) => setTaskDesc(e.target.value)} />
-            <input type="submit" value="Add Task" />
+            <input id="addTask" type="submit" value="Add Task" />
       </form>
     );
 }

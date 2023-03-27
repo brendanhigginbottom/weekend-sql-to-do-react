@@ -23,9 +23,17 @@ function ToDoTask({ task, fetchToDo }) {
             alert('Something went wrong');
         });
     }
+
+    const isComplete = () => {
+        if (task.complete === false) {
+            return 'white';
+        } else {
+            return 'lightgreen';
+        }
+    }
     
     return (
-        <tr>
+        <tr style={{backgroundColor: isComplete()}}>
             <td>{task.date.substring(0,10)}</td>
             <td>{task.task_name}</td>
             <td>{task.task_desc}</td>
