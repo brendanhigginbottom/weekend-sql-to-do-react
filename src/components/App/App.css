@@ -13,7 +13,7 @@
 
 main {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 header {
   background-color:  rgb(157, 241, 213);
@@ -26,7 +26,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: rgb(235, 229, 113);
+  background-color: silver;
 }
 
 table {
@@ -34,13 +34,14 @@ table {
   border-collapse: collapse;
   border: 1px solid #ddd;
   font-size: 14px;
-  margin-bottom: 15px;
   background-color: solid;
+  
 }
 
 th, td {
   text-align: left;
   padding: 8px;
+  border: 1px solid;
 }
 
 form {
@@ -49,6 +50,7 @@ align-items: flex-end;
 justify-content: space-between;
 grid-template-columns: auto auto auto;
 gap: 8px;
+padding: 10px 10px;
 }
 
 @keyframes App-logo-spin {
